@@ -3,11 +3,17 @@
 import random
 
 # this list will be sorted out and randomized, it exists to provide the terms for the user.
+
+# concept 1 (nested lists)
 choices = [['cat', 'dog', 'cow', 'mouse'],['horse', 'bird', 'bat', 'duck'],['cat', 'dog', 'cow', 'mouse'],['horse', 'bird', 'bat', 'duck']]
 
 # this is just a layout for the board in order for it to be neatly sorted (making 4 separate lists would seem redunant).
+
 board = [[],[],[],[]]
+
 # im sorting out each part of the board in order to make sure no terms are repeated.
+
+# concept 2 (random)
 board[0] = random.sample(choices[0], 4)
 board[1] = random.sample(choices[1], 4)
 board[2] = random.sample(choices[2], 4)
@@ -31,12 +37,21 @@ mem_col_2 = []
 
 blankspace = ("\n" * 20)
 
+
 # i have no idea how to format this better.
+
+# concept 3 (string format method)
 print("\n 1 {0}\n 2 {1}\n 3 {2}\n 4 {3}\n".format(board[0], board[1], board[2], board[3]))
+
+# concept 4 (inputs)
 begin = input("Please enter 'Y' when you wish to begin: ")
 
 # initiates the start of the game and the conditions to finish.
+
+# concept 5 (while loops)
 while True:
+
+    # concept 6 (try except)
     try:
         while score < 8:
             if begin.upper() == 'Y':
@@ -52,6 +67,8 @@ while True:
                 column = int(input("Please select a column: "))
                 row = int(input("Please select a row: "))
                 # this is a chained conditional which establishes the users visuals to the correct answers.
+
+                # concept 7 (nested conditionals)
                 if column == 1:
                     column = board[0]
                     mem_col_1 = mod_row_a
@@ -93,6 +110,8 @@ while True:
                 print(blankspace)
                 print(" 1 {0}\n 2 {1}\n 3 {2}\n 4 {3}\n".format(mod_row_a, mod_row_b, mod_row_c, mod_row_d))
                 # if the first term is equal to the second and the terms are not already found, this will be counted towards the users total score.
+                
+                # concept 8 (logical operators)
                 if first == second and (mem_col_1[mem_row_1 - 1] != " "):
                     chosen.append(first)
                     mem_col_1[mem_row_1 - 1] = " "
@@ -101,8 +120,13 @@ while True:
                 else:
                     mem_col_1[mem_row_1 - 1] = "X"
                     mem_col_2[mem_row_2 - 1] = "X"
-        print("You win!")
-        break
+        # again = input ("You win! Do you want to play again? ")
+        # if again.upper() == 'Y':
+        #     continue
+        # else:
+        #     print("Thank you for playing!")
     except:
-        print("Hm... an error occurred.")
+        print("An error occurred...")
+        continue
+    else:
         break
