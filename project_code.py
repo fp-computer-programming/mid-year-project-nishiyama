@@ -120,11 +120,7 @@ while True:
                 else:
                     mem_col_1[mem_row_1 - 1] = "X"
                     mem_col_2[mem_row_2 - 1] = "X"
-        # again = input ("You win! Do you want to play again? ")
-        # if again.upper() == 'Y':
-        #     continue
-        # else:
-        #     print("Thank you for playing!")
+        print("Thank you for playing!")
     except:
         print("An error occurred...")
         continue
