@@ -1,9 +1,13 @@
 import random
 choices = [
-    ['cat', 'dog', 'cow', 'mouse'],['horse', 'bird', 'bat', 'duck'],['cat', 'dog', 'cow', 'mouse'],
+    ['cat', 'dog', 'cow', 'mouse'],
+    ['horse', 'bird', 'bat', 'duck'],
+    ['cat', 'dog', 'cow', 'mouse'],
     ['horse', 'bird', 'bat', 'duck']
     ]
-board = [[],[],[],[]]
+board = [
+    [],[],[],[]
+    ]
 board[0] = random.sample(choices[0], 4)
 board[1] = random.sample(choices[1], 4)
 board[2] = random.sample(choices[2], 4)
@@ -12,6 +16,7 @@ mod_row_a = ['X', 'X', 'X', 'X']
 mod_row_b = ['X', 'X', 'X', 'X']
 mod_row_c = ['X', 'X', 'X', 'X']
 mod_row_d = ['X', 'X', 'X', 'X']
+placeholder = '_'
 chosen = []
 score = len(chosen)
 mem_row_1 = 0
@@ -50,7 +55,7 @@ while True:
                     mem_col_1 = mod_row_d
                 first = column[row - 1]
                 mem_row_1 = row
-                mem_col_1[mem_row_1 - 1] = "_"
+                mem_col_1[mem_row_1 - 1] = placeholder
                 print(blankspace)
                 print(" 1 {0}\n 2 {1}\n 3 {2}\n 4 {3}\n".format(mod_row_a, mod_row_b, mod_row_c, mod_row_d))
                 column = int(input("Please select a new column: "))
@@ -69,7 +74,7 @@ while True:
                     mem_col_2 = mod_row_d
                 second = column[row - 1]
                 mem_row_2 = row
-                mem_col_2[mem_row_2 - 1] = "_"
+                mem_col_2[mem_row_2 - 1] = placeholder
                 print(blankspace)
                 print(" 1 {0}\n 2 {1}\n 3 {2}\n 4 {3}\n".format(mod_row_a, mod_row_b, mod_row_c, mod_row_d))
                 if first == second and (mem_col_1[mem_row_1 - 1] != " "):
@@ -80,15 +85,16 @@ while True:
                 else:
                     mem_col_1[mem_row_1 - 1] = "X"
                     mem_col_2[mem_row_2 - 1] = "X"
+        print(blankspace)
         mod_row_a = [' ', ' ', ' ', ' ']
         mod_row_b = [' ', ' ', ' ', ' ']
         mod_row_c = [' ', ' ', ' ', ' ']
         mod_row_d = [' ', ' ', ' ', ' ']
         print(blankspace)
         print(" 1 {0}\n 2 {1}\n 3 {2}\n 4 {3}\n".format(mod_row_a, mod_row_b, mod_row_c, mod_row_d))
-        print("You win!\nThank you for playing!")
+        print("You win!\nThank you for playing the game!")
     except:
-        print("An error occurred...")
+        print("An error occurred, the game has exited.")
         break
     else:
         break

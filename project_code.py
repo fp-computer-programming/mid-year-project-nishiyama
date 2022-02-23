@@ -6,13 +6,17 @@ import random
 
 # concept 1 (nested lists)
 choices = [
-    ['cat', 'dog', 'cow', 'mouse'],['horse', 'bird', 'bat', 'duck'],['cat', 'dog', 'cow', 'mouse'],
+    ['cat', 'dog', 'cow', 'mouse'],
+    ['horse', 'bird', 'bat', 'duck'],
+    ['cat', 'dog', 'cow', 'mouse'],
     ['horse', 'bird', 'bat', 'duck']
     ]
 
 # this is just a layout for the board in order for it to be neatly sorted (making 4 separate lists would seem redunant)
 
-board = [[],[],[],[]]
+board = [
+    [],[],[],[]
+    ]
 
 # im sorting out each part of the board in order to make sure no terms are repeated
 
@@ -28,6 +32,8 @@ mod_row_b = ['X', 'X', 'X', 'X']
 mod_row_c = ['X', 'X', 'X', 'X']
 mod_row_d = ['X', 'X', 'X', 'X']
 
+placeholder = '_'
+
 # i made this variable to map the users "score"
 chosen = []
 score = len(chosen)
@@ -39,6 +45,7 @@ mem_row_1 = 0
 mem_row_2 = 0
 mem_col_1 = []
 mem_col_2 = []
+
 
 blankspace = ("\n" * 20)
 
@@ -53,7 +60,7 @@ print('Your objective is to match each of the terms above with one another. The 
 'row (1-4) on your keyboard.')
 
 # concept 4 (inputs)
-begin = input("Please enter 'Y' when you wish to begin: ")
+begin = input("Please enter 'Y' when you wish to begin the game: ")
 
 # initiates the start of the game and the conditions to finish.
 
@@ -98,7 +105,7 @@ while True:
                 # this is a variable which shows the users first selection.
                 first = column[row - 1]
                 mem_row_1 = row
-                mem_col_1[mem_row_1 - 1] = "_"
+                mem_col_1[mem_row_1 - 1] = placeholder
                 print(blankspace)
                 print(" 1 {0}\n 2 {1}\n 3 {2}\n 4 {3}\n".format(mod_row_a, mod_row_b, mod_row_c, mod_row_d))
                 # same exact process for the second selection. again, this seems redundant but i am not sure how else
@@ -122,7 +129,7 @@ while True:
                 second = column[row - 1]
                 mem_row_2 = row
                 # this was something that i came up with as the user might not be completely sure of their input.
-                mem_col_2[mem_row_2 - 1] = "_"
+                mem_col_2[mem_row_2 - 1] = placeholder
                 print(blankspace)
                 print(" 1 {0}\n 2 {1}\n 3 {2}\n 4 {3}\n".format(mod_row_a, mod_row_b, mod_row_c, mod_row_d))
                 # if the first term is equal to the second and the terms are not already found, this will be counted
@@ -137,15 +144,16 @@ while True:
                 else:
                     mem_col_1[mem_row_1 - 1] = "X"
                     mem_col_2[mem_row_2 - 1] = "X"
+        print(blankspace)
         mod_row_a = [' ', ' ', ' ', ' ']
         mod_row_b = [' ', ' ', ' ', ' ']
         mod_row_c = [' ', ' ', ' ', ' ']
         mod_row_d = [' ', ' ', ' ', ' ']
         print(blankspace)
         print(" 1 {0}\n 2 {1}\n 3 {2}\n 4 {3}\n".format(mod_row_a, mod_row_b, mod_row_c, mod_row_d))
-        print("You win!\nThank you for playing!")
+        print("You win!\nThank you for playing the game!")
     except:
-        print("An error occurred...")
+        print("An error occurred, the game has exited.")
         break
     else:
         break
