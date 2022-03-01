@@ -5,6 +5,9 @@ import random
 # this list will be sorted out and randomized, it exists to provide the terms for the user
 
 # concept 1 (nested lists)
+
+# concept 2 (lists)
+
 choices = [
     ['cat', 'dog', 'cow', 'mouse'],
     ['horse', 'bird', 'bat', 'duck'],
@@ -20,7 +23,7 @@ board = [
 
 # im sorting out each part of the board in order to make sure no terms are repeated
 
-# concept 2 (random)
+# concept 3 (random)
 board[0] = random.sample(choices[0], 4)
 board[1] = random.sample(choices[1], 4)
 board[2] = random.sample(choices[2], 4)
@@ -52,22 +55,22 @@ blankspace = ("\n" * 20)
 
 # i have no idea how to format this better.
 
-# concept 3 (string format method)
+# concept 4 (string format method)
 print("\n 1 {0}\n 2 {1}\n 3 {2}\n 4 {3}\n".format(board[0], board[1], board[2], board[3]))
 
 print('Your objective is to match each of the terms above with one another. The game ends when there are '
 'no terms left to be matched. In order to choose a term, you must enter the column (1-4) of the term followed by the '
 'row (1-4) on your keyboard.')
 
-# concept 4 (inputs)
+# concept 5 (inputs)
 begin = input("Please enter 'Y' when you wish to begin the game: ")
 
 # initiates the start of the game and the conditions to finish.
 
-# concept 5 (while loops)
+# concept 7 (while loops)
 while True:
 
-    # concept 6 (try except)
+    # concept 7 (try except)
     try:
         while score < 8:
             if begin.upper() == 'Y':
@@ -89,7 +92,10 @@ while True:
                 row = int(input("Please select a row: "))
                 # this is a chained conditional which establishes the users visuals to the correct answers.
 
-                # concept 7 (nested conditionals)
+                # concept 8 (nested conditionals)
+
+                # concept 9 (conditionals)
+
                 if column == 1:
                     column = board[0]
                     mem_col_1 = mod_row_a
@@ -135,7 +141,7 @@ while True:
                 # if the first term is equal to the second and the terms are not already found, this will be counted
                 # towards the users total score.
                 
-                # concept 8 (logical operators)
+                # concept 10 (logical operators)
                 if first == second and (mem_col_1[mem_row_1 - 1] != " "):
                     chosen.append(first)
                     mem_col_1[mem_row_1 - 1] = " "
