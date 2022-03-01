@@ -67,7 +67,7 @@ begin = input("Please enter 'Y' when you wish to begin the game: ")
 
 # initiates the start of the game and the conditions to finish.
 
-# concept 7 (while loops)
+# concept 6 (while loops)
 while True:
 
     # concept 7 (try except)
